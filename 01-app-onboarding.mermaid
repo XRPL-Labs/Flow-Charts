@@ -1,0 +1,48 @@
+---
+config:
+  theme: redux
+  look: handDrawn
+  fontFamily: '''Inter Variable'', sans-serif'
+  themeVariables:
+    fontFamily: '''Inter Variable'', sans-serif'
+  layout: elk
+---
+stateDiagram
+  direction LR
+  classDef Rose stroke-width:1px,stroke-dasharray:none,stroke:#FF5978,fill:#FFDFE5,color:#8E2236;
+  classDef Peach stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#8F632D;
+  classDef Sky stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C;
+  Store --> Still
+  Still --> s1
+  s1 --> s2
+  s1 --> s3
+  s2 --> s4
+  s4 --> s5
+  s3 --> s5
+  s5 --> s6
+  s6 --> s7
+  s6 --> s8
+  s7 --> s9
+  s8 --> s9
+  s9 --> s10
+  s9 --> s11
+  s11 --> s12
+  s10 --> s13
+  Store:App/Play Store App Download
+  Still:App Start (1)
+  s1:Choose App PIN<br>(2a, 2b)
+  s2:Unsafe PIN (2c)
+  s3:Safe PIN
+  s4:Ack
+  s5:Repeat (confirm) PIN (2d)
+  s6:Give Push Permission (3a)
+  s7:Yes (3b)
+  s8:No
+  s9:View Terms (4)
+  s10:Accept terms
+  s11:Don't accept terms
+  s12:Process stops here, no way to continue
+  s13:App Home Screen (without account) (5)
+  class s12 Rose
+  class s2,s8,s11 Peach
+  class Store,s13 Sky
