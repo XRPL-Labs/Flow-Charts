@@ -1,0 +1,30 @@
+---
+config:
+  theme: redux
+  look: handDrawn
+  fontFamily: '''Inter Variable'', sans-serif'
+  themeVariables:
+    fontFamily: '''Inter Variable'', sans-serif'
+---
+stateDiagram
+  direction LR
+  classDef Sky stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C;
+  classDef Aqua stroke-width:1px,stroke-dasharray:none,stroke:#46EDC8,fill:#DEFFF8,color:#378E7A;
+  x --> s1
+  x --> s2
+  s2 --> s3
+  y --> s3
+  s1 --> s4
+  s4 --> s5
+  s3 --> s6
+  s5 --> s7
+  x:Empty account<br>"Activate your account" (12) (13)
+  s1:Fund via Exchange (15)
+  s2:Buy XRP
+  s3:Opens Buy/Sell XRP xApp (14)
+  y:Funded account
+  s4:Select Exchange (from our Docs) (16)
+  s5:Pick Onramper from curated list
+  s7:Redirect to onramper</br>r-address prefilled
+  class x,y Sky
+  class s3,s5 Aqua
