@@ -1,0 +1,33 @@
+---
+config:
+  theme: redux
+  look: handDrawn
+  fontFamily: '''Inter Variable'', sans-serif'
+  themeVariables:
+    fontFamily: '''Inter Variable'', sans-serif'
+---
+stateDiagram
+  direction LR
+  classDef Sky stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C;
+  classDef Peach stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#8F632D;
+  classDef Aqua stroke-width:1px,stroke-dasharray:none,stroke:#46EDC8,fill:#DEFFF8,color:#378E7A;
+  G --> s1
+  H --> s1
+  X --> s1
+  s1 --> s2
+  s2 --> s3
+  s3 --> s4
+  X --> s4
+  G --> s4
+  s4 --> s5
+  G:Help Center
+  s1:Buy/Sell xApp:<br>Curated Onramp/Offramp xApp list
+  H:Home screen: new (unactivated) account - Activate btn.
+  X:xApp browser
+  s2:Country filter: default = IP (Cloudflare reported) based selection, allows picking from country list and filters available Onramp/Offramp xApps based on their availability as reported by their owners
+  s3:User picks provider
+  s4:Open dedicated provider's Onramp/Offramp xApp
+  s5:Redirect or iframe to partner environment (passing r-address)
+  class s1 Sky
+  class s3 Peach
+  class s4 Aqua
