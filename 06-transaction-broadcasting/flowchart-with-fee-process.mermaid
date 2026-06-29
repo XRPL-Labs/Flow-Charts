@@ -1,0 +1,67 @@
+---
+config:
+  theme: redux
+  look: handDrawn
+  fontFamily: '''Inter Variable'', sans-serif'
+  themeVariables:
+    fontFamily: '''Inter Variable'', sans-serif'
+---
+stateDiagram
+  direction LR
+  classDef Rose stroke-width:1px,stroke-dasharray:none,stroke:#FF5978,fill:#FFDFE5,color:#8E2236;
+  classDef Sky stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C;
+  classDef Aqua stroke-width:1px,stroke-dasharray:none,stroke:#46EDC8,fill:#DEFFF8,color:#378E7A;
+  classDef Ash stroke-width:1px,stroke-dasharray:none,stroke:#999999,fill:#EEEEEE,color:#000000;
+  classDef Peach stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#8F632D;
+  t --> s1
+  t --> s2
+  t --> s3
+  t --> s4
+  s1 --> s5
+  s2 --> s5
+  s3 --> s6
+  s6 --> s7
+  s4 --> s6
+  s7 --> s9
+  s9 --> s10
+  s10 --> s5
+  s5 --> s11
+  s7 --> s12
+  s12 --> s13
+  s12 --> s14
+  s13 --> s15
+  s14 --> s16
+  s16 --> s17
+  s15 --> s5
+  s17 --> s5
+  s6 --> s18
+  s18 --> s19
+  s18 --> s20
+  s16 --> s20
+  s9 --> s19
+  s13 --> s19
+  t:Transaction signed
+  s1:Pseudo transaction (sign request, e.g. SignIn, just for signature)
+  s2:Payload (sign request) with submit = false
+  s3:Manual send transaction
+  s4:Regular Payload (sign request) transaction
+  s5:Inform requesting Application (API Key) over Webhook/WebSocket
+  s6:Submit signed TX Blob to connected RPC (WebSocket) node with `submit` command
+  s7:Subscribe to transaction stream
+  s9:Transaction not seen in Transaction Stream before "Max Ledger" (when the tx expires)
+  s10:Transaction failed (inform user)
+  s11:User returns to pre-transaction screen (in app, xApp, home screen, ...)
+  s12:Transaction seen in Transaction Stream before "Max Ledger" (when the tx expires)
+  s13:Transaction seen but no outcome (transaction success, outcome failed)
+  s14:Transaction seen and with outcome (e.g. delivered amount on trade, payment, ..)
+  s15:Inform user
+  s16:Success screen
+  s17:Only on Manual Send: offer to add recipient to address book
+  s18:Send clone to Xaman Backend with origin transaction (for logging purposes) and pre-signed Fee transaction (if applicable)
+  s19:Discard fee tx
+  s20:Submit fee tx
+  class s9 Rose
+  class t,s12 Sky
+  class s6,s16 Aqua
+  class s7,s19,s20 Ash
+  class s5,s17 Peach
