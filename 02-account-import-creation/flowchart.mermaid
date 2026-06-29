@@ -1,0 +1,64 @@
+---
+config:
+  theme: redux
+  look: handDrawn
+  fontFamily: '''Inter Variable'', sans-serif'
+  themeVariables:
+    fontFamily: '''Inter Variable'', sans-serif'
+---
+stateDiagram
+  direction LR
+  classDef Sky stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C;
+  classDef Ash stroke-width:1px,stroke-dasharray:none,stroke:#999999,fill:#EEEEEE,color:#000000;
+  classDef Peach stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#8F632D;
+  classDef Aqua stroke-width:1px,stroke-dasharray:none,stroke:#46EDC8,fill:#DEFFF8,color:#378E7A;
+  h --> xx
+  xx --> x
+  x --> s1
+  x --> s2
+  x --> s3
+  s2 --> s4
+  s2 --> s5
+  s4 --> s6
+  s6 --> s7
+  s6 --> s8
+  s6 --> s9
+  s7 --> s10
+  s8 --> s10
+  s9 --> s10
+  s10 --> s11
+  s1 --> s12
+  s12 --> s13
+  s13 --> s14
+  s14 --> s15
+  s15 --> s10
+  s11 --> s16
+  s16 --> h
+  h --> s17
+  s17 --> s18
+  s18 --> x
+  h:Home Screen
+  xx:No account present
+  x:Add Account<br>
+  s1:Create account
+  s2:Import Account
+  s3:Add Tangem Card
+  s4:Full Access
+  s5:Read Only
+  s6:Choose Secret Type
+  s7:Secret Numbers
+  s8:Family Seed
+  s9:Mnemonic
+  s10:Enter Secret
+  s11:View derived public address<br>("R-address")
+  s12:Gather Entropy<br>(NATIVE CODE)
+  s13:Represent Entropy as Secret Numbers
+  s14:Show to user
+  s15:User has to input the entire secret to confirm
+  s16:Add label (name)
+  s17:Settings
+  s18:Accounts
+  class x Sky
+  class s12 Ash
+  class s6,s10 Peach
+  class s11,s14 Aqua
