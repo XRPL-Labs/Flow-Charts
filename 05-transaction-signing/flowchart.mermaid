@@ -1,0 +1,39 @@
+---
+config:
+  theme: redux
+  look: handDrawn
+  fontFamily: '''Inter Variable'', sans-serif'
+  themeVariables:
+    fontFamily: '''Inter Variable'', sans-serif'
+---
+stateDiagram
+  direction LR
+  classDef Sky stroke-width:1px,stroke-dasharray:none,stroke:#374D7C,fill:#E2EBFF,color:#374D7C;
+  s --> s1
+  s --> s2
+  s --> s3
+  s3 --> s4
+  s4 --> s5
+  s5 --> s6
+  s6 --> s7
+  s7 --> s8
+  s8 --> s9
+  s2 --> s10
+  s1 --> s11
+  s11 --> s12
+  s10 --> s12
+  s12 --> s8
+  s:Transaction to be signed<br>(Through Sign Request or manual Send)
+  s1:Lower Security Secret (in memory, PIN / FaceID)
+  s2:High Security Secret (Passphrase encrypted) - Native code + RN binding
+  s3:Tangem Card - Native code = RN binding
+  s4:Tap and hold card for 10 seconds (security delay, prevent proximity attack, card enforced)
+  s5:Hash transaction
+  s6:Send Hash to card
+  s7:Receve signature
+  s8:Merge signature into transaction
+  s9:Broadcast to network over WebSocket connection to node
+  s10:User enters passphrase to temp. decrypt secret store
+  s11:User passes Face/Fingerprint check (by OS) or enters PIN
+  s12:Transaction is Signed with decrypted secret
+  class s,s9 Sky
